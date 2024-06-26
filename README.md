@@ -5,6 +5,9 @@ Windows only keine Pläne die Anwendung zu Protierung auf andere Systeme
 
 ⚡23MB an Arbeitsspeicher
 
+![preview-of-the-application-in-use](preview.gif)
+
+
 Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:
 - Sitze im Anwendungstray bis man draufklickt.
 - Zeige dir die Gerichte in der Mensa an

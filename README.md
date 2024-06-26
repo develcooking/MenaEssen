@@ -18,6 +18,9 @@ Wie stelle ich meine Mena ein?
 Wie schließe ich die App?
 - Rechtsklick auf den Tray und auf schließen klicken
 
+App zum Autostart hinzufügen:
+- mach eine Verknüpfung zur exe und verschiebe sie nach : ```~/AppData\Roaming\Microsoft\Windows\ Startmenü\Programme\Autostart```
+
 Funktionierende Menüs (Stand 26.06.2024):
 
 ```https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-feldkirchenstrasse-bamberg/menu```

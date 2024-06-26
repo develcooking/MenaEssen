@@ -15,11 +15,19 @@ Wie schließe ich die App?
 - Rechtsklick auf den Tray und auf schließen klicken
 
 Funktionierende Menüs (Stand 26.06.2024):
-https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-feldkirchenstrasse-bamberg/menu
-https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-austrasse-bamberg/menu
-https://www.swerk-wue.de/schweinfurt/essen-trinken/mensen-speiseplaene/mensa-thws-campus-schweinfurt/menu
-https://www.swerk-wue.de/aschaffenburg/essen-trinken/mensen-speiseplaene/mensa-hochschulcampus-aschaffenburg/menu
-https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-josef-schneider-strasse-wuerzburg/menu
-https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-roentgenring-wuerzburg/menu
-https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-am-studentenhaus-wuerzburg/menu
-https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensateria-campus-hubland-nord-wuerzburg/menu
+
+```https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-feldkirchenstrasse-bamberg/menu```
+
+```https://www.swerk-wue.de/bamberg/essen-trinken/mensen-speiseplaene/mensa-austrasse-bamberg/menu```
+
+```https://www.swerk-wue.de/schweinfurt/essen-trinken/mensen-speiseplaene/mensa-thws-campus-schweinfurt/menu```
+
+```https://www.swerk-wue.de/aschaffenburg/essen-trinken/mensen-speiseplaene/mensa-hochschulcampus-aschaffenburg/menu```
+
+```https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-josef-schneider-strasse-wuerzburg/menu```
+
+```https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-roentgenring-wuerzburg/menu```
+
+```https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensa-am-studentenhaus-wuerzburg/menu```
+
+```https://www.swerk-wue.de/wuerzburg/essen-trinken/mensen-speiseplaene/mensateria-campus-hubland-nord-wuerzburg/menu```

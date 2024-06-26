@@ -1,6 +1,8 @@
 # MenaEssen 🍔
 Windows only keine Pläne die Anwendung zu Protierung auf andere Systeme
+
 ⚡500kb an Speicherplatz
+
 ⚡23MB an Arbeitsspeicher
 
 Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:

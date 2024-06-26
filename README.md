@@ -14,6 +14,7 @@ Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:
 
 Wie stelle ich meine Mena ein?
 - Öffne die MensaEssen.dll.config und änder die Mensa URL ab
+
 Wie schließe ich die App?
 - Rechtsklick auf den Tray und auf schließen klicken
 

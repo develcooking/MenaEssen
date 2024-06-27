@@ -1,4 +1,4 @@
-# MesaEssen 🍔
+# MensaEssen 🍔
 Windows only keine Pläne die Anwendung zu Protierung auf andere Systeme
 
 ⚡500kb an Speicherplatz

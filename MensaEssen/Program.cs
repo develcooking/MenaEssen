@@ -44,6 +44,15 @@ namespace MensaEssen
 
             // Erstelle ein Kontextmenü für das NotifyIcon
             ContextMenuStrip contextMenu = new ContextMenuStrip();
+
+            ToolStripMenuItem refreshDataItem = new ToolStripMenuItem("Daten aktualisieren");
+            refreshDataItem.Click += async (sender, e) =>
+            {
+                await form.RefreshData();
+                MessageBox.Show("Die Mensa-Daten wurden erfolgreich aktualisiert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            };
+            contextMenu.Items.Add(refreshDataItem);
+
             ToolStripMenuItem minimizeItem = new ToolStripMenuItem("Minimieren");
             minimizeItem.Click += (sender, e) =>
             {

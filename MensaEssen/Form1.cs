@@ -20,6 +20,11 @@ namespace MensaEssen
 
         private async void MensaEssen_Load(object? sender, EventArgs e)
         {
+            await RefreshData();
+        }
+
+        public async Task RefreshData()
+        {
             string? url = ConfigurationManager.AppSettings["MensaUrl"];
             if (string.IsNullOrEmpty(url))
             {
@@ -95,7 +100,7 @@ namespace MensaEssen
             }
         }
 
-        private void changeMensaUrlToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void changeMensaUrlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string? currentUrl = ConfigurationManager.AppSettings["MensaUrl"];
             string input = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die neue Mensa-URL ein:", "Mensa-URL ändern", currentUrl ?? string.Empty);
@@ -108,8 +113,28 @@ namespace MensaEssen
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("appSettings");
 
-                MessageBox.Show("Die Mensa-URL wurde erfolgreich geändert. Bitte starten Sie die Anwendung neu, damit die Änderungen wirksam werden.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Refresh data without restarting
+                await RefreshData();
+
+                // Notify the user about the successful update and reload
+                MessageBox.Show("Die Mensa-URL wurde erfolgreich geändert und die Daten wurden aktualisiert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else
+            {
+                MessageBox.Show("Die eingegebene URL ist ungültig.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void refreshDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            await RefreshData();
+            MessageBox.Show("Die Mensa-Daten wurden erfolgreich aktualisiert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void trayRefreshDataMenuItem_Click(object sender, EventArgs e)
+        {
+            await RefreshData();
+            MessageBox.Show("Die Mensa-Daten wurden erfolgreich aktualisiert.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void PopulateDataGridView(string html)

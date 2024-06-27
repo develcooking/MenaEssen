@@ -13,10 +13,13 @@ Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:
 - Zeige dir die Gerichte in der Mensa an
 
 Wie stelle ich meine Mena ein?
-- Öffne die MensaEssen.dll.config und änder die Mensa URL ab
+- Oben links auf Optionen und dann Ändere Mensa URL
 
 Wie schließe ich die App?
 - Rechtsklick auf den Tray und auf schließen klicken
+
+Wo soll ich die App hin speichern?
+- Der Speicherort ist egal. Sie können die Anwendung ohne Adminrechte ausführen 
 
 App zum Autostart hinzufügen:
 - mach eine Verknüpfung zur exe und verschiebe sie nach : ```~/AppData\Roaming\Microsoft\Windows\ Startmenü\Programme\Autostart```

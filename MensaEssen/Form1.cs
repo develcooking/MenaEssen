@@ -19,7 +19,7 @@ namespace MensaEssen
 
         private async void MensaEssen_Load(object? sender, EventArgs e)
         {
-            string url = ConfigurationManager.AppSettings["MensaUrl"];
+            string? url = ConfigurationManager.AppSettings["MensaUrl"];
             if (string.IsNullOrEmpty(url))
             {
                 MessageBox.Show("Die URL wurde nicht in der Konfigurationsdatei gefunden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -40,7 +40,7 @@ namespace MensaEssen
 
         private void LinkLabel_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
         {
-            string url = ConfigurationManager.AppSettings["MensaUrl"];
+            string? url = ConfigurationManager.AppSettings["MensaUrl"];
             if (!string.IsNullOrEmpty(url))
             {
                 Process.Start(new ProcessStartInfo(url) { UseShellExecute = true });
@@ -67,6 +67,22 @@ namespace MensaEssen
                 {
                     return string.Empty;  // Geben Sie einen leeren String zurück, falls eine Ausnahme auftritt
                 }
+            }
+        }
+        private void changeMensaUrlToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string? currentUrl = ConfigurationManager.AppSettings["MensaUrl"];
+            string input = Microsoft.VisualBasic.Interaction.InputBox("Bitte geben Sie die neue Mensa-URL ein:", "Mensa-URL ändern", currentUrl ?? string.Empty);
+
+            if (!string.IsNullOrEmpty(input))
+            {
+                // Update the URL in the configuration file
+                Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                config.AppSettings.Settings["MensaUrl"].Value = input;
+                config.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection("appSettings");
+
+                MessageBox.Show("Die Mensa-URL wurde erfolgreich geändert. Bitte starten Sie die Anwendung neu, damit die Änderungen wirksam werden.", "Erfolg", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

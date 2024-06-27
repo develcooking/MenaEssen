@@ -12,7 +12,7 @@ Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:
 - Sitze im Anwendungstray bis man draufklickt.
 - Zeige dir die Gerichte in der Mensa an
 
-Wie stelle ich meine Mesa ein?
+Wie stelle ich meine Mensa ein?
 - Oben links auf Optionen und dann Ändere Mensa URL
 
 Wie schließe ich die App?

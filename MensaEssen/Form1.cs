@@ -3,6 +3,7 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Web;
 using System.Windows.Forms;
 using HtmlAgilityPack;
 
@@ -28,6 +29,12 @@ namespace MensaEssen
             linkLabel.Text = url;
 
             string content = await GetContentFromUrl(url);
+            if (string.IsNullOrEmpty(content) || content == "Error: Unable to retrieve content.")
+            {
+                MessageBox.Show("Die Webseite hat keinen Inhalt oder konnte nicht abgerufen werden.", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             PopulateDataGridView(content);
         }
 
@@ -44,27 +51,42 @@ namespace MensaEssen
         {
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(url);
-                if (response.IsSuccessStatusCode)
+                try
                 {
-                    return await response.Content.ReadAsStringAsync();
+                    HttpResponseMessage response = await client.GetAsync(url);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return await response.Content.ReadAsStringAsync();
+                    }
+                    else
+                    {
+                        return string.Empty;  // Geben Sie einen leeren String zurück, statt eines Fehlertexts
+                    }
                 }
-                else
+                catch (Exception)
                 {
-                    return "Error: Unable to retrieve content.";
+                    return string.Empty;  // Geben Sie einen leeren String zurück, falls eine Ausnahme auftritt
                 }
             }
         }
 
         private void PopulateDataGridView(string html)
         {
+            if (string.IsNullOrEmpty(html))
+            {
+                MessageBox.Show("Es sind keine Menüeinträge verfügbar.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dishesDataGridView.Rows.Clear();
+                return;
+            }
+
             var document = new HtmlAgilityPack.HtmlDocument();
             document.LoadHtml(html);
 
             var menuEntryDivs = document.DocumentNode.SelectNodes("//div[@class='day-menu active']//div[contains(@class, 'menu-entry_main-row')]");
             if (menuEntryDivs == null)
             {
-                MessageBox.Show("No menu entries found for today.");
+                MessageBox.Show("Keine Menüeinträge für heute gefunden.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dishesDataGridView.Rows.Clear();
                 return;
             }
 
@@ -88,11 +110,11 @@ namespace MensaEssen
 
                 if (typeNode != null && recipeNameNode != null && priceNode != null)
                 {
-                    string dishType = typeNode.Attributes["data-type-title"]?.Value ?? "N/A";
-                    string recipeName = recipeNameNode.InnerText.Trim();
-                    string priceStudent = priceNode.Attributes["data-price-student"]?.Value ?? "N/A";
-                    string priceServant = priceNode.Attributes["data-price-servant"]?.Value ?? "N/A";
-                    string priceGuest = priceNode.Attributes["data-price-guest"]?.Value ?? "N/A";
+                    string dishType = HttpUtility.HtmlDecode(typeNode.Attributes["data-type-title"]?.Value ?? "N/A");
+                    string recipeName = HttpUtility.HtmlDecode(recipeNameNode.InnerText.Trim());
+                    string priceStudent = HttpUtility.HtmlDecode(priceNode.Attributes["data-price-student"]?.Value ?? "N/A");
+                    string priceServant = HttpUtility.HtmlDecode(priceNode.Attributes["data-price-servant"]?.Value ?? "N/A");
+                    string priceGuest = HttpUtility.HtmlDecode(priceNode.Attributes["data-price-guest"]?.Value ?? "N/A");
 
                     dishesDataGridView.Rows.Add(dishType, recipeName, priceStudent, priceServant, priceGuest);
                 }

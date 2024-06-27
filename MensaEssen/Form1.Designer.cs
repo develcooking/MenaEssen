@@ -61,9 +61,9 @@ namespace MensaEssen
             additionalTextLabel = new Label();
             ((ISupportInitialize)dishesDataGridView).BeginInit();
             SuspendLayout();
-            //
+            // 
             // dishesDataGridView
-            //
+            // 
             dishesDataGridView.AllowUserToAddRows = false;
             dishesDataGridView.AllowUserToDeleteRows = false;
             dishesDataGridView.AllowUserToResizeColumns = false;
@@ -75,9 +75,9 @@ namespace MensaEssen
             dishesDataGridView.RowHeadersVisible = false;
             dishesDataGridView.Size = new Size(776, 336);
             dishesDataGridView.TabIndex = 1;
-            //
+            // 
             // linkLabel
-            //
+            // 
             linkLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             linkLabel.AutoSize = true;
             linkLabel.Location = new Point(12, 358);
@@ -87,20 +87,19 @@ namespace MensaEssen
             linkLabel.TabStop = true;
             linkLabel.Text = "Besuchen Sie die Webseite";
             linkLabel.LinkClicked += LinkLabel_LinkClicked;
-            //
+            // 
             // additionalTextLabel
-            //
+            // 
             additionalTextLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             additionalTextLabel.AutoSize = true;
             additionalTextLabel.Location = new Point(12, 377);
             additionalTextLabel.Name = "additionalTextLabel";
-            additionalTextLabel.Size = new Size(200, 15);
+            additionalTextLabel.Size = new Size(344, 15);
             additionalTextLabel.TabIndex = 2;
             additionalTextLabel.Text = "Um die Url zu ändern editere die WinFormsApp2.dll.config Datei";
-
-            //
+            // 
             // MensaEssen
-            //
+            // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(800, 450);
             Controls.Add(additionalTextLabel);
@@ -114,6 +113,7 @@ namespace MensaEssen
             Name = "MensaEssen";
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "Mensa Essen des Tages";
+            TopMost = true;
             Load += MensaEssen_Load;
             ((ISupportInitialize)dishesDataGridView).EndInit();
             ResumeLayout(false);

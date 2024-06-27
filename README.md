@@ -1,4 +1,4 @@
-# MenaEssen 🍔
+# MesaEssen 🍔
 Windows only keine Pläne die Anwendung zu Protierung auf andere Systeme
 
 ⚡500kb an Speicherplatz
@@ -12,7 +12,7 @@ Dies ist eine kleine Anwendung, die was sehr spezifisches tun soll:
 - Sitze im Anwendungstray bis man draufklickt.
 - Zeige dir die Gerichte in der Mensa an
 
-Wie stelle ich meine Mena ein?
+Wie stelle ich meine Mesa ein?
 - Oben links auf Optionen und dann Ändere Mensa URL
 
 Wie schließe ich die App?

@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Configuration;
 using System.Diagnostics;
 using System.Net.Http;
@@ -26,8 +27,6 @@ namespace MensaEssen
                 return;
             }
 
-            linkLabel.Text = url;
-
             string content = await GetContentFromUrl(url);
             if (string.IsNullOrEmpty(content) || content == "Error: Unable to retrieve content.")
             {
@@ -35,7 +34,34 @@ namespace MensaEssen
                 return;
             }
 
+            // Extract, format, and display Mensa name from URL
+            string mensaName = ExtractMensaNameFromUrl(url);
+            string currentDate = DateTime.Now.ToString("dd.MM.yyyy");
+            string currentTime = DateTime.Now.ToString("HH:mm");
+            titleLabel.Text = $"Gerichte der '{mensaName}' am {currentDate} aktualisiert um {currentTime}";
+
             PopulateDataGridView(content);
+        }
+
+        private string ExtractMensaNameFromUrl(string url)
+        {
+            Uri uri = new Uri(url);
+            string[] segments = uri.Segments;
+            for (int i = 0; i < segments.Length; i++)
+            {
+                if (segments[i].Trim('/').Equals("mensen-speiseplaene", StringComparison.OrdinalIgnoreCase) && i + 1 < segments.Length)
+                {
+                    return FormatMensaName(segments[i + 1].Trim('/'));
+                }
+            }
+            return "Unbekannte Mensa"; // Fallback if mensa name is not found
+        }
+
+        private string FormatMensaName(string mensaName)
+        {
+            // Remove dashes and capitalize the first letter of each word
+            TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+            return textInfo.ToTitleCase(mensaName.Replace('-', ' '));
         }
 
         private void LinkLabel_LinkClicked(object? sender, LinkLabelLinkClickedEventArgs e)
@@ -69,6 +95,7 @@ namespace MensaEssen
                 }
             }
         }
+
         private void changeMensaUrlToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string? currentUrl = ConfigurationManager.AppSettings["MensaUrl"];

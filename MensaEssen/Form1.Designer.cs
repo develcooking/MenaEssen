@@ -9,8 +9,7 @@ namespace MensaEssen
     {
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.DataGridView dishesDataGridView;
-        private System.Windows.Forms.LinkLabel linkLabel;
-        private System.Windows.Forms.Label additionalTextLabel;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem changeMensaUrlToolStripMenuItem;
@@ -98,10 +97,18 @@ namespace MensaEssen
             this.MainMenuStrip = this.menuStrip;
 
             dishesDataGridView = new DataGridView();
-            linkLabel = new LinkLabel();
-            additionalTextLabel = new Label();
+            titleLabel = new Label();
             ((ISupportInitialize)dishesDataGridView).BeginInit();
             SuspendLayout();
+            //
+            // titleLabel
+            //
+            titleLabel.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+            titleLabel.AutoSize = true;
+            titleLabel.Location = new Point(13, 30); // Adjusted location for the menu
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(0, 15);
+            titleLabel.TabIndex = 0;
             //
             // dishesDataGridView
             //
@@ -110,42 +117,18 @@ namespace MensaEssen
             dishesDataGridView.AllowUserToResizeColumns = false;
             dishesDataGridView.AllowUserToResizeRows = false;
             dishesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dishesDataGridView.Location = new Point(13, 40); // Adjusted location for the menu
+            dishesDataGridView.Location = new Point(13, 55); // Adjusted location for the menu
             dishesDataGridView.Margin = new Padding(3, 4, 3, 4);
             dishesDataGridView.Name = "dishesDataGridView";
             dishesDataGridView.RowHeadersVisible = false;
             dishesDataGridView.Size = new Size(776, 336);
             dishesDataGridView.TabIndex = 1;
             //
-            // linkLabel
-            //
-            linkLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            linkLabel.AutoSize = true;
-            linkLabel.Location = new Point(12, 358);
-            linkLabel.Name = "linkLabel";
-            linkLabel.Size = new Size(146, 15);
-            linkLabel.TabIndex = 0;
-            linkLabel.TabStop = true;
-            linkLabel.Text = "Besuchen Sie die Webseite";
-            linkLabel.LinkClicked += LinkLabel_LinkClicked;
-            //
-            // additionalTextLabel
-            //
-            additionalTextLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            additionalTextLabel.AutoSize = true;
-            additionalTextLabel.Location = new Point(12, 377);
-            additionalTextLabel.Name = "additionalTextLabel";
-            additionalTextLabel.Size = new Size(200, 15);
-            additionalTextLabel.TabIndex = 2;
-            additionalTextLabel.Text = "Um die Url zu ändern editere die WinFormsApp2.dll.config Datei";
-
-            //
             // MensaEssen
             //
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(800, 450);
-            Controls.Add(additionalTextLabel);
-            Controls.Add(linkLabel);
+            Controls.Add(titleLabel);
             Controls.Add(dishesDataGridView);
             Controls.Add(this.menuStrip); // Add the MenuStrip to the Controls
             FormBorderStyle = FormBorderStyle.FixedSingle;

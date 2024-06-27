@@ -34,7 +34,6 @@ namespace MensaEssen
                 return;
             }
 
-            // Extract, format, and display Mensa name from URL
             string mensaName = ExtractMensaNameFromUrl(url);
             string currentDate = DateTime.Now.ToString("dd.MM.yyyy");
             string currentTime = DateTime.Now.ToString("HH:mm");
